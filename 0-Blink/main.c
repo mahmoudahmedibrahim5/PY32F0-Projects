@@ -16,16 +16,16 @@ int main(void)
 		/* RCC Clock enable for GPIOA */
 		SET_BIT(RCC->IOPENR, RCC_IOPENR_GPIOAEN);
 		
-		/* Set Pin 5 as OUTPUT (MODE = 01) */
+		/* Set Pin PA1 as OUTPUT (MODE = 01) */
 		MODIFY_REG(GPIOA->MODER, GPIO_MODER_MODE1_1, GPIO_MODER_MODE1_0);
 	
 		while(1)
 		{
-			/* Set The PA5 pin, Turn on the LED */
+			/* Set The PA1 pin, Turn on the LED */
 			SET_BIT(GPIOA->BSRR, GPIO_BSRR_BS1);
 			delay(0x3FFFF);
 			
-			/* Reset The PA5 pin, Turn off the LED */
+			/* Reset The PA1 pin, Turn off the LED */
 			SET_BIT(GPIOA->BSRR, GPIO_BSRR_BR1);
 			delay(0x3FFFF);
 		}
